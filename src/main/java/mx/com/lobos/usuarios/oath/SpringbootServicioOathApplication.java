@@ -10,7 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @EnableFeignClients
 @EnableEurekaClient
-@SpringBootApplication
+@SpringBootApplication()
 public class SpringbootServicioOathApplication implements CommandLineRunner{
 
 	@Autowired

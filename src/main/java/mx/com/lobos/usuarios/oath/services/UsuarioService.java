@@ -18,7 +18,7 @@ import mx.com.lobos.usuarios.commons.models.entity.Usuario;
 import mx.com.lobos.usuarios.oath.clients.UsuarioFeignClient;
 
 @Service
-public class UsuarioService implements UserDetailsService {
+public class UsuarioService implements IUsuarioService, UserDetailsService {
 
 	private Logger log = LoggerFactory.getLogger(UsuarioService.class);
 	
@@ -43,6 +43,11 @@ public class UsuarioService implements UserDetailsService {
 	
 		return new User(usuario.getUsername(), usuario.getPassword(), usuario.getEnabled(), 
 				true, true, true, authorities);
+	}
+
+	@Override
+	public Usuario findByUsername(String username) {
+		return client.findByUserName(username);
 	}
 
 }
